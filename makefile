@@ -1,7 +1,14 @@
-readme : guessinggame.sh
-	touch README.md
-	echo "Title of the project: __Peer-graded Assignment: Bash, Make, Git, and GitHub__" > README.md
-	echo "\nDate make ran at:" >> README.md
-	date >> README.md
-	echo "\nNumber of lines file guessinggame.sh contains:" >> README.md
-	cat guessinggame.sh | wc -l >> README.md
+# Makefile for the Guessing Game Project
+
+README.md: guessinggame.sh
+	echo "# Guessing Game Project" > README.md
+	echo "This project is a simple guessing game written in Bash." >> README.md
+	echo "" >> README.md
+	echo "## Run Information" >> README.md
+	echo "This file was generated on: $$(date)" >> README.md
+	echo "" >> README.md
+	echo "## Number of Lines in guessinggame.sh" >> README.md
+	echo "$$(wc -l < guessinggame.sh) lines" >> README.md
+
+clean:
+	rm -f README.md
